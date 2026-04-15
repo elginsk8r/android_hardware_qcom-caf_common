@@ -5,7 +5,17 @@ phony {
     name: "QssiCommonOverlay",
     required: [
         "QssiFrameworksOverlay",
-        "QssiTelephonyOverlay",
         "QssiWifiOverlay",
+    ] + select(soong_config_variable("qssi", "supports_telephony"), {
+        false: [],
+        default: ["QssiTelephonyCommonOverlay"],
+    }),
+}
+
+phony {
+    name: "QssiTelephonyCommonOverlay",
+    required: [
+        "QssiFrameworksTelephonyOverlay",
+        "QssiTelephonyOverlay",
     ],
 }
