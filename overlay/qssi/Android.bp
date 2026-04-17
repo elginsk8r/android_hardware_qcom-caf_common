@@ -17,5 +17,11 @@ phony {
     required: [
         "QssiFrameworksTelephonyOverlay",
         "QssiTelephonyOverlay",
-    ],
+    ] + select(soong_config_variable("qssi", "supports_ims"), {
+        false: [],
+        default: [
+            "QssiFrameworksTelephonyImsOverlay",
+            "QssiTelephonyImsOverlay",
+        ],
+    }),
 }
