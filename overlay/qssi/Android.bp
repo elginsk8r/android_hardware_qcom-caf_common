@@ -6,7 +6,10 @@ phony {
     required: [
         "QssiFrameworksOverlay",
         "QssiWifiOverlay",
-    ] + select(soong_config_variable("qssi", "supports_telephony"), {
+    ] + select(soong_config_variable("qssi", "atv_or_car"), {
+        true: [],
+        default: ["QssiFrameworksNoCarAtvOverlay"],
+    }) + select(soong_config_variable("qssi", "supports_telephony"), {
         false: [],
         default: ["QssiTelephonyCommonOverlay"],
     }),
