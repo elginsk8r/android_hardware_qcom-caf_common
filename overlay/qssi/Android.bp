@@ -15,6 +15,9 @@ phony {
     }) + select(soong_config_variable("qssi", "supports_wifi6"), {
         true: ["QssiWifi6gOverlay"],
         default: [],
+    }) + select(soong_config_variable("qssi", "supports_wfd"), {
+        true: ["QssiFrameworksWfdOverlay"],
+        default: [],
     }),
 }
 
