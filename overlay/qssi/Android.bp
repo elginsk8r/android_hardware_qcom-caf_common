@@ -26,5 +26,8 @@ phony {
             "QssiFrameworksTelephonyImsOverlay",
             "QssiTelephonyImsOverlay",
         ],
+    }) + select(soong_config_variable("qssi", "supports_5g"), {
+        false: [],
+        default: ["QssiFrameworksTelephony5gOverlay"],
     }),
 }
