@@ -5,9 +5,7 @@
 #
 
 PRODUCT_PACKAGES += \
-    QssiFrameworksOverlay \
-    QssiTelephonyOverlay \
-    QssiWifiOverlay
+    QssiCommonOverlay
 
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)

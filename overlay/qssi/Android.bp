@@ -1,2 +1,11 @@
 soong_namespace {
 }
+
+phony {
+    name: "QssiCommonOverlay",
+    required: [
+        "QssiFrameworksOverlay",
+        "QssiTelephonyOverlay",
+        "QssiWifiOverlay",
+    ],
+}
